@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Your styles here */
+    </style>
+</head>
+<body>
+    <h1>Game Library</h1>
+
+    <!-- Form to add a new game -->
+    <form action="/add_game" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br>
+
+        <label for="publisher">Publisher:</label>
+        <input type="text" id="publisher" name="publisher"><br>
+
+        <label for="console">Console:</label>
+        <input type="text" id="console" name="console"><br>
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre"><br>
+
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" name="rating"><br>
+
+        <label for="score">Score:</label>
+        <input type="text" id="score" name="score"><br>
+
+        <input type="submit" value="Add Game">
+    </form>
+
+    <!-- Display the list of games -->
+    <ul>
+        {% for game in games %}
+            <li>
+                <strong>{{ game.title }}</strong> - {{ game.publisher }} - {{ game.console }} - {{ game.genre }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

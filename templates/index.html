@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Game Collection</h1>
+
+<!-- Buttons for sorting -->
+<button onclick="window.location.href = '/sort/title'">Sort by Title</button>
+<button onclick="window.location.href = '/sort/publisher'">Sort by Publisher</button>
+<button onclick="window.location.href = '/sort/console'">Sort by Console</button>
+<button onclick="window.location.href = '/sort/genre'">Sort by Genre</button>
+<button onclick="window.location.href = '/sort/rating'">Sort by Rating</button>
+<button onclick="window.location.href = '/sort/score'">Sort by Score</button>
+
+<!-- Button for toggling order -->
+<button onclick="toggleOrder()">Toggle Order</button>
+
+
+<script>
+    function toggleOrder() {
+        // Get the current URL
+        let url = new URL(window.location.href);
+
+        // Check if 'reverse' parameter exists and toggle its value
+        let reverse = url.searchParams.get('reverse');
+        if (reverse && reverse.toLowerCase() === 'true') {
+            url.searchParams.set('reverse', 'false');
+        } else {
+            url.searchParams.set('reverse', 'true');
+        }
+
+        // Redirect to the updated URL with the toggled 'reverse' parameter
+        window.location.href = url.href;
+    }
+</script>
+
+<h2>Games:</h2>
+<ul>
+    <!-- Game list -->
+    {% for game in games %}
+    <li>
+        <p>Title: {{ game.title }}</p>
+        <p>Publisher: {{ game.publisher }}</p>
+        <p>Console: {{ game.console }}</p>
+        <p>Genre: {{ game.genre }}</p>
+        <p>Rating: {{ game.rating }}</p>
+        <p>Score: {{ game.score }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

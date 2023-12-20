@@ -1,0 +1,19 @@
+Video game review site
+
+For database
+
+Video game class
+Title, Publisher, Console, Rating (like e for everyone or m for mature), Review (as in critic score)
+
+Console class
+Name, Creator, 
+
+For website
+
+Home page
+A way to view all entries on the video game list
+A way to sort the list by by publisher, console
+Link the page to the database 
+Normal account that can review
+Admin account that can add games
+Non admin account that can like or follow games

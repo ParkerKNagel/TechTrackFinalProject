@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Navigation bar style */
+        .navbar {
+            background-color: yellow;
+            padding: 10px;
+        }
+
+        .navbar a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Additional styles */
+        * {
+            font-family: "Lucida Console", "Courier New", monospace;
+        }
+    </style>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Gamebase</h1>
+    </div>
+
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/index">View game list</a>
+
+        {% if current_user.is_authenticated %}
+        <a href="/create_game">Add a game</a>
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Register an account</a>
+    {% endif %}
+    </div>
+
+    <div>
+        <!-- Content here -->
+    </div>
+
+    <script>
+        // Your JavaScript code here
+    </script>
+
+    
+ {% block content %} {% endblock %}
+     
+</body>
+</html>
